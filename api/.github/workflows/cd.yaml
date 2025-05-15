@@ -1,0 +1,42 @@
+name: CD
+
+on:
+  workflow_run:
+    workflows: CI
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Pull the Docker image
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/detector:latest
+
+      - name: Delete the existing container
+        run: docker rm -f detector-container || true
+
+      - name: Create .env file
+        run: |
+          echo "GOOGLE_GENERATIVE_AI_API_KEY=${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}" > .env
+          echo "Created .env file with contents:"
+          cat .env
+          pwd
+
+      - name: Run the Docker container
+        run: |
+          docker run -d \
+            --name detector-container \
+            -p 3000:3000 \
+            --env-file .env \
+            ${{ secrets.DOCKER_USERNAME }}/detector:latest
+
+      - name: Debug container
+        run: |
+          echo "Container status:"
+          docker ps -a | grep detector-container
+          echo "Container logs:"
+          docker logs detector-container
+          echo "Container environment variables:"
+          docker exec detector-container env | grep GOOGLE

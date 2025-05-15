@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "176308352489",
+    "project_id": "detect-it-4c85d",
+    "storage_bucket": "detect-it-4c85d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176308352489:android:c50882f2f94a3cc9cd4778",
+        "android_client_info": {
+          "package_name": "com.app.detect_it"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176308352489-0rg3e601pjbud0qlc5p2ff28qjumk5up.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG-ArU3jfB1Dpv6685JZrGbBdUoGt72Tw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176308352489-0rg3e601pjbud0qlc5p2ff28qjumk5up.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "176308352489-ot9tstfeo2isrncnestr5h28iqsffq7a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.detectit"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
